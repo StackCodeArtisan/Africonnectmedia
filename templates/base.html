@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AFRI-CONNECT MEDIA{% endblock %}</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    
+    {% block extra_css %}{% endblock %}
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+            } else {
+            navbar.classList.remove("scrolled");
+            }
+        });
+
+                document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll(".animate-slide-left, .animate-slide-right");
+
+            function checkVisibility() {
+            const triggerBottom = window.innerHeight * 0.85;
+            elements.forEach(el => {
+                const boxTop = el.getBoundingClientRect().top;
+                if (boxTop < triggerBottom) {
+                el.classList.add("animate-visible");
+                }
+            });
+            }
+
+            window.addEventListener("scroll", checkVisibility);
+            checkVisibility();
+        });
+
+         document.querySelectorAll('.btn-cta, .btn-cta-outline').forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const ripple = document.createElement('span');
+      ripple.classList.add('ripple');
+      const x = e.clientX - e.target.getBoundingClientRect().left;
+      const y = e.clientY - e.target.getBoundingClientRect().top;
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+
+      // Remove old ripple if exists
+      const oldRipple = e.target.querySelector('.ripple');
+      if (oldRipple) oldRipple.remove();
+
+      e.target.appendChild(ripple);
+
+      // Allow navigation after short delay (for ripple to show)
+      setTimeout(() => {
+        window.location.href = e.target.getAttribute('href');
+      }, 300);
+    });
+  });
+
+      document.addEventListener("DOMContentLoaded", () => {
+    // Fade-in footer observer (keep your previous code)
+    const faders = document.querySelectorAll(".footer-fade");
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -20px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fadeEl => appearOnScroll.observe(fadeEl));
+
+    // ===== Scroll to Top Button =====
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+
+   const reveals = document.querySelectorAll('.reveal');
+
+  function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+    reveals.forEach((el) => {
+      const elementTop = el.getBoundingClientRect().top;
+      if (elementTop < windowHeight - 100) {
+        el.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+
+  document.addEventListener('scroll', function() {
+    const reveals = document.querySelectorAll('.reveal');
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(function(el) {
+      const elementTop = el.getBoundingClientRect().top;
+      if (elementTop < windowHeight - 100) {
+        el.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top p-3">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="{{ url_for('index') }}">
+            <!-- Full logo (default) -->
+            <img 
+                src="{{ url_for('static', filename='images/logo.png') }}" 
+                alt="Afri-Connect Media Logo" 
+                class="me-2 logo-img main-logo">
+            <!-- Small logo (shown on scroll) -->
+            <img 
+                src="{{ url_for('static', filename='images/logo-small.png') }}" 
+                alt="Afri-Connect Icon" 
+                class="me-2 logo-img small-logo d-none">
+            </a>
+
+            <!-- Mobile toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav links -->
+            <div class="collapse navbar-collapse navconnect" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('index') }}">HOME</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('services') }}">SERVICES</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('team') }}">TEAM</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contact') }}">CONTACT US</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
+
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container mt-5 pt-4">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section text-light py-5 mt-5">
+  <div class="overlay"></div>
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-lg-4 mb-4 footer-fade">
+        <h5 class="fw-bold mb-3 neon-glow">
+          <img src="{{ url_for('static', filename='images/logo.png') }}" class="footer-logo-img me-2" alt="AFRI-CONNECT MEDIA">
+          AFRI-CONNECT MEDIA
+        </h5>
+        <p class="text-light-50">Media Production, Communication & Development</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4 footer-fade">
+        <h6 class="fw-bold mb-3 neon-glow text-turquoise">Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="{{ url_for('about') }}" class="footer-link">About Us</a></li>
+          <li><a href="{{ url_for('services') }}" class="footer-link">Services</a></li>
+          <li><a href="{{ url_for('team') }}" class="footer-link">Team</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6 mb-4 footer-fade">
+        <h6 class="fw-bold mb-3 neon-glow text-turquoise">Services</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="footer-link">Media Production</a></li>
+          <li><a href="#" class="footer-link">Media Communication</a></li>
+          <li><a href="#" class="footer-link">Media for Development</a></li>
+          <li><a href="#" class="footer-link">Graphic Design</a></li>
+          <li><a href="#" class="footer-link">Online Marketing</a></li>
+          <li><a href="#" class="footer-link">Airtime Sales</a></li>
+          <li><a href="#" class="footer-link">Podcast Creation</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4 mb-4 footer-fade">
+        <h6 class="fw-bold mb-3 neon-glow text-turquoise">Newsletter</h6>
+        <p class="text-light-50 mb-3">Subscribe to our newsletter for updates</p>
+        <form id="newsletterForm" class="d-flex newsletter-form">
+          <input type="email" class="form-control me-2" placeholder="Your email" required>
+          <button type="submit" class="btn btn-turquoise">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <hr class="border-turquoise my-4">
+    <div class="row align-items-center footer-fade">
+      <div class="col-md-6">
+        <p class="mb-0">&copy; 2025 AFRI-CONNECT MEDIA. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <a href="#" class="footer-link me-3">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

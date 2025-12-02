@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}Services - AFRI-CONNECT MEDIA{% endblock %}
+
+{% block content %}
+<!-- HERO SECTION -->
+<section class="services-hero position-relative text-white py-5">
+    <div class="overlay"></div>
+    <div class="container text-center py-5">
+        <h1 class="display-4 fw-bold mb-3 mt-5">Our Services</h1>
+        <p class="lead">Comprehensive media solutions tailored to your vision</p>
+    </div>
+</section>
+
+<!-- MAIN SERVICES -->
+<section class="py-5 bg-black text-light">
+    <div class="container">
+
+        <!-- MEDIA PRODUCTION -->
+        <div class="row align-items-center mb-5" data-aos="fade-up">
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/media-production.jpg') }}" alt="Media Production" class="img-fluid rounded shadow-lg fade-img">
+            </div>
+            <div class="col-lg-6 ps-lg-5 mt-4 mt-lg-0">
+                <h2 class="fw-bold text-turquoise mb-4">Media Production</h2>
+                <p class="lead mb-3">
+                    We produce high-quality video, photography, and multimedia content that connects your brand with audiences.
+                </p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Motion pictures & TV shows</li>
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Video & Commercial content</li>
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Photography & Graphic Design</li>
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Radio & Online media</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MEDIA COMMUNICATION -->
+        <div class="row align-items-center mb-5 flex-lg-row-reverse" data-aos="fade-up">
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/media-communication.jpg') }}" alt="Media Communication" class="img-fluid rounded shadow-lg fade-img">
+            </div>
+            <div class="col-lg-6 pe-lg-5 mt-4 mt-lg-0">
+                <h2 class="fw-bold text-turquoise mb-4">Media Communication</h2>
+                <p class="lead mb-3">
+                    Our strategic communication plans ensure your message reaches the right audience across multiple channels.
+                </p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Strategic media planning</li>
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Brand storytelling</li>
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Campaign design & management</li>
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Events & public engagement</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MEDIA FOR DEVELOPMENT -->
+        <div class="row align-items-center mb-5" data-aos="fade-up">
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/media-development.jpg') }}" alt="Media for Development" class="img-fluid rounded shadow-lg fade-img">
+            </div>
+            <div class="col-lg-6 ps-lg-5 mt-4 mt-lg-0">
+                <h2 class="fw-bold text-turquoise mb-4">Media for Development</h2>
+                <p class="lead mb-3">
+                    We empower communities by producing media that inspires change, raises awareness, and supports growth.
+                </p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Social impact campaigns</li>
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Capacity building</li>
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Research & advocacy</li>
+                    <li><i class="fas fa-check text-turquoise me-2"></i>Community storytelling</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ADDITIONAL SERVICES -->
+<section class="py-5 bg-dark text-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-turquoise">Additional Services</h2>
+            <p class="lead">Specialized solutions designed for your unique needs</p>
+        </div>
+
+        <div class="row g-4">
+            {% for service in [
+                {'icon':'fa-palette','title':'Graphic Design','desc':'Creative branding and visual identity solutions.'},
+                {'icon':'fa-code','title':'Web Development','desc':'Custom websites & digital platforms.'},
+                {'icon':'fa-share-alt','title':'Airtime Sales','desc':'Strategic media buying & advertising slots.'},
+                {'icon':'fa-search','title':'Media Research','desc':'Data-driven media insights and analysis.'}
+            ] %}
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 border-0 text-center bg-black text-light shadow-sm card-hover">
+                    <div class="card-body p-4">
+                        <i class="fas {{ service.icon }} fa-3x text-turquoise mb-3"></i>
+                        <h5 class="fw-bold">{{ service.title }}</h5>
+                        <p class="text">{{ service.desc }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 cta-section text-white text-center position-relative">
+   
+    <div class="container py-5">
+        <h2 class="display-5 fw-bold mb-4">Ready to Get Started?</h2>
+        <p class="lead mb-4">Let’s create something remarkable together.</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-turquoise btn-lg mx-2">Contact Us</a>
+        <a href="{{ url_for('about') }}" class="btn btn-outline-turquoise btn-lg mx-2">Learn More</a>
+    </div>
+</section>
+
+<!-- CUSTOM STYLES -->
+<style>
+    .services-hero {
+        background: url('{{ url_for("static", filename="images/services-bg.jpg") }}') center/cover no-repeat;
+        position: relative;
+        min-height: 70vh;
+    }
+    .services-hero .overlay,
+    .cta-section .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+    }
+    .text-turquoise { color: #00e5d1; }
+    .btn-turquoise {
+        background-color: #00e5d1;
+        color: #000;
+        border: none;
+        transition: all 0.3s ease;
+    }
+    .btn-turquoise:hover {
+        background-color: #00bfa5;
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00e5d1;
+    }
+    .btn-outline-turquoise {
+        border: 2px solid #00e5d1;
+        color: #00e5d1;
+        transition: all 0.3s ease;
+    }
+    .btn-outline-turquoise:hover {
+        background-color: #00e5d1;
+        color: #000;
+        box-shadow: 0 0 10px #00e5d1;
+    }
+    .fade-img {
+        transition: transform 0.5s ease, filter 0.5s ease;
+        border-radius: 20px;
+    }
+    .fade-img:hover {
+        transform: scale(1.03);
+        filter: brightness(1.1);
+    }
+    .card-hover {
+        transition: all 0.4s ease;
+        border: 1px solid transparent;
+    }
+    .card-hover:hover {
+        transform: translateY(-10px);
+        border-color: #00e5d1;
+        box-shadow: 0 0 20px rgba(0, 229, 209, 0.3);
+    }
+</style>
+
+{% endblock %}

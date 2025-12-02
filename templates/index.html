@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}AFRI-CONNECT MEDIA - Media Production, Communication & Development{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+  <!-- Carousel indicators -->
+<div class="d-flex gap-3 justify-content-center animate-text" style="animation-delay: 0.9s;">
+  <a href="{{ url_for('services') }}" class="btn btn-light btn-lg">Our Services</a>
+  <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-lg">Contact Us</a>
+</div>
+
+
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <!-- Slide 1 -->
+    <div class="carousel-item active hero-slide" style="background-image: url('static/images/stagepics.jpg');">
+      <div class="overlay"></div>
+      <div class="container text-white text-center d-flex flex-column justify-content-center align-items-center min-vh-100 hero-content">
+        <h1 class="display-4 fw-bold mb-4 animate-text">AFRI-CONNECT MEDIA</h1>
+        <h2 class="h4 mb-4 animate-text" style="animation-delay: 0.3s;">Media Production, Communication & Development</h2>
+        <p class="lead mb-4 animate-text" style="animation-delay: 0.6s;">Afri connect media is connecting businesses around the world by creating niche for brands in the African market.</p>
+        <div class="d-flex gap-3 justify-content-center animate-text" style="animation-delay: 0.9s;">
+          <a href="{{ url_for('services') }}" class="btn btn-light btn-lg">Our Services</a>
+          <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-lg">Contact Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item hero-slide" style="background-image: url('static/images/studiopics.jpg');">
+      <div class="overlay"></div>
+      <div class="container text-white text-center d-flex flex-column justify-content-center align-items-center min-vh-100 hero-content">
+        <h1 class="display-4 fw-bold mb-4 animate-text">Creative Visual Storytelling</h1>
+        <p class="lead mb-4 animate-text" style="animation-delay: 0.4s;">We help brands tell compelling stories that resonate with audiences globally.</p>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item hero-slide" style="background-image: url('static/images/beachpics.jpg');">
+      <div class="overlay"></div>
+      <div class="container text-white text-center d-flex flex-column justify-content-center align-items-center min-vh-100 hero-content">
+        <h1 class="display-4 fw-bold mb-4 animate-text">Building Brands Across Africa</h1>
+        <p class="lead mb-4 animate-text" style="animation-delay: 0.4s;">Empowering business visibility through creative media solutions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carousel controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</section>
+ 
+<!-- Hero section ends-->
+
+<!-- About Section -->
+<section class="about-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left Side: Image -->
+      <div class="col-lg-6 mb-4 mb-lg-0 animate-slide-left">
+        <div class="about-image text-center">
+          <img src="{{ url_for('static', filename='images/about-us.jpg') }}" 
+               alt="About Afri-Connect Media" 
+               class="img-fluid rounded-4 shadow-lg">
+        </div>
+      </div>
+
+      <!-- Right Side: Text -->
+      <div class="col-lg-6 text-white animate-slide-right">
+        <h2 class="display-5 fw-bold mb-4">Who We Are</h2>
+        <p class="lead mb-4">
+          AFRI-CONNECT MEDIA is a bold new force in media and communication built on expertise, innovation, and a passion for excellence.
+        </p>
+        <p class="mb-4">
+          At the core, we are a design agency that places quality over quantity. 
+          We help our clients find unique solutions that stand out, solving creative challenges is what fuels our passion.
+        </p>
+        <p class="mb-4">
+          We believe the customer is king by supporting you in the digital realm, we help you achieve your goals.
+        </p>
+        <a href="{{ url_for('about') }}" class="btn btn-modern mt-2 btn-glow">Learn More About Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About Section ends-->
+ 
+<!-- CTA Section -->
+<section class="cta-section py-5 text-white">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="display-5 fw-bold mb-4">Ready to Start Your Project?</h2>
+        <p class="lead mb-4">
+          Let us help you achieve your communication goals with our professional 
+          media production and development services.
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="{{ url_for('contact') }}" class="btn btn-cta btn-glow">Get Started</a>
+          <a href="{{ url_for('services') }}" class="btn btn-cta-outline btn-glow">Our Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+2025-11-14 03:42:55,625 - __main__ - INFO - CORS configured for development: allowing all origins
+2025-11-14 03:42:55,628 - __main__ - WARNING - Flask-Talisman not installed or failed to load, using manual security headers
+2025-11-14 03:42:55,700 - __main__ - INFO - Database initialized successfully
+2025-11-14 03:42:56,053 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.2.1:5000
+2025-11-14 03:42:56,059 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 03:42:56,078 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 03:42:58,279 - __main__ - INFO - CORS configured for development: allowing all origins
+2025-11-14 03:42:58,281 - __main__ - WARNING - Flask-Talisman not installed or failed to load, using manual security headers
+2025-11-14 03:42:58,295 - __main__ - INFO - Database initialized successfully
+2025-11-14 03:42:58,364 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 03:42:58,378 - werkzeug - INFO -  * Debugger PIN: 370-308-999

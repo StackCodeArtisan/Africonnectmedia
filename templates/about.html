@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - AFRI-CONNECT MEDIA{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="about-hero-section d-flex align-items-center text-center text-light">
+  <div class="about-overlay"></div>
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="display-4 fw-bold mb-3 neon-glow">About Us</h1>
+        <p class="lead mb-0">Learn more about AFRI-CONNECT MEDIA and our mission</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- About Content -->
+<section class="about-content-section py-5">
+  <div class="container">
+    <!-- WHO WE ARE -->
+    <div class="row align-items-center mb-5 reveal">
+      <div class="col-lg-6 fade-in-left">
+        <h2 class="display-5 fw-bold mb-4 text-turquoise">Who We Are</h2>
+        <p class="lead mb-4 text-light">
+          AFRI-CONNECT MEDIA is a bold new force in media and communication built on expertise, innovation, and a passion for excellence.
+        Though a new brand, we bring together a dynamic team of professionals with years of experience in creative communication, media development, and research.
+        We are driven by a single mission: to deliver world-class solutions, surpass expectations, and provide an unmatched customer experience that sets a new standard in the industry
+                </p>
+        <p class="mb-4 text">
+          At the core, we are a design agency that places quality over quantity as a principle. 
+          We like to help our clients with solutions that look beyond what everyone is currently doing. 
+          Coming up with a solution to a problem is what drives our passion.
+        </p>
+        <p class="mb-4 text">
+          The customer is king, and we believe that by supporting you in the digital realm 
+          we help you achieve your goals.
+        </p>
+      </div>
+
+      <div class="col-lg-6 text-center fade-in-right">
+        <div class="about-image-wrapper">
+          <img src="{{ url_for('static', filename='images/about-team.jpg') }}" alt="About Us"
+               class="about-image img-fluid rounded shadow-lg">
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSION -->
+    <div class="row mb-5 text-center reveal">
+      <div class="col-12">
+        <h3 class="fw-bold mb-3 text-turquoise glowing-text">Our Mission</h3>
+        <p class="lead text-light">
+          To provide innovative media solutions that help organizations communicate 
+          effectively and achieve their development goals through creative use of 
+          technology and new media platforms.
+        </p>
+      </div>
+    </div>
+
+    <!-- VISION -->
+    <div class="row mb-5 text-center reveal">
+      <div class="col-12">
+        <h3 class="fw-bold mb-3 text-turquoise glowing-text">Our Vision</h3>
+        <p class="lead text-light">
+          To be the leading media production and communication company in Africa, 
+          known for excellence in creative content development and innovative 
+          communication strategies.
+        </p>
+      </div>
+    </div>
+
+    <!-- VALUES -->
+    <div class="row g-4 reveal">
+      <div class="col-lg-3 col-md-6">
+        <div class="value-card p-4 text-center rounded">
+          <i class="fas fa-star fa-3x mb-3 text-turquoise"></i>
+          <h5 class="text-light">Quality</h5>
+          <p class="text">We prioritize quality over quantity in all our deliverables.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="value-card p-4 text-center rounded">
+          <i class="fas fa-lightbulb fa-3x mb-3 text-turquoise"></i>
+          <h5 class="text-light">Innovation</h5>
+          <p class="text">We create solutions that look beyond current trends.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="value-card p-4 text-center rounded">
+          <i class="fas fa-heart fa-3x mb-3 text-turquoise"></i>
+          <h5 class="text-light">Passion</h5>
+          <p class="text">Problem-solving drives our passion for excellence.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="value-card p-4 text-center rounded">
+          <i class="fas fa-users fa-3x mb-3 text-turquoise"></i>
+          <h5 class="text-light">Customer Focus</h5>
+          <p class="text">The customer is king in everything we do.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Team Preview -->
+<section class="team-section py-5">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="row text-center mb-5 reveal">
+      <div class="col-12">
+        <h2 class="display-5 fw-bold mb-3 text-turquoise">Our Team</h2>
+        <p class="lead text-light">Meet the creative minds behind AFRI-CONNECT MEDIA</p>
+      </div>
+    </div>
+
+    <!-- Team Cards -->
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="team-card text-center p-4 rounded">
+          <div class="border-anim"></div>
+          <div class="team-avatar mb-3">
+            <img src="{{ url_for('static', filename='images/team-1.jpg') }}" alt="Creative Director" class="img-fluid rounded-circle shadow">
+          </div>
+          <h5 class="fw-bold text-light">CEO</h5>
+          <p class="text-light">Leading our creative vision and strategy</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="team-card text-center p-4 rounded">
+          <div class="border-anim"></div>
+          <div class="team-avatar mb-3">
+            <img src="{{ url_for('static', filename='images/team-2.png') }}" alt="Production Manager" class="img-fluid rounded-circle shadow">
+          </div>
+          <h5 class="fw-bold text-light">COO</h5>
+          <p class="text-light">Leading our creative vision and strategy with over 10 years of experience in media production and content development</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="team-card text-center p-4 rounded">
+          <div class="border-anim"></div>
+          <div class="team-avatar mb-3">
+            <img src="{{ url_for('static', filename='images/team-3.jpg') }}" alt="Communication Specialist" class="img-fluid rounded-circle shadow">
+          </div>
+          <h5 class="fw-bold text-light">Web Developer</h5>
+          <p class="text-light">Developing communication strategies and managing client relationships to ensure successful project outcomes</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5 reveal">
+      <a href="{{ url_for('team') }}" class="btn btn-turquoise btn-lg">Meet Our Full Team</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
