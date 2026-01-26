@@ -36,10 +36,6 @@ def about():
 def services():
     return render_template('services.html')
 
-@app.route('/team')
-def team():
-    return render_template('team.html')
-
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
